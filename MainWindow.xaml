@@ -1,0 +1,117 @@
+<Window x:Class="AdventureGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="像素冒险闯关 - Pixel Adventure"
+        Height="600" Width="900"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#1a1a2e"
+        Focusable="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- HUD 顶部信息栏 -->
+        <Border Grid.Row="0" Background="#16213e" Padding="10,5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" x:Name="TextScore" 
+                           Text="分数: 0" 
+                           Foreground="#ffd700" 
+                           FontSize="16" 
+                           FontWeight="Bold"
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="1" x:Name="TextLives" 
+                           Text="生命: ♥♥♥" 
+                           Foreground="#ff6b6b" 
+                           FontSize="16"
+                           FontWeight="Bold"
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="2" x:Name="TextCoins" 
+                           Text="金币: 0" 
+                           Foreground="#ffd700" 
+                           FontSize="16"
+                           FontWeight="Bold"
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Column="3" x:Name="TextLevel" 
+                           Text="关卡: 1" 
+                           Foreground="#4ecdc4" 
+                           FontSize="16"
+                           FontWeight="Bold"
+                           VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
+
+        <!-- 游戏画布 -->
+        <Canvas Grid.Row="1" x:Name="GameCanvas" 
+                Background="#0f3460"
+                ClipToBounds="True"/>
+
+        <!-- 底部操作提示 -->
+        <Border Grid.Row="2" Background="#16213e" Padding="10,5">
+            <TextBlock Text="← → 移动 | ↑ 或 Space 跳跃 | Shift 攻击 | P 暂停 | R 重新开始" 
+                       Foreground="#a8a8b3" 
+                       FontSize="12"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- 游戏结束遮罩 -->
+        <Border x:Name="GameOverOverlay" 
+                Grid.RowSpan="3"
+                Background="#80000000"
+                Visibility="Collapsed">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="TextGameOver" 
+                           Text="游戏结束" 
+                           Foreground="#ff6b6b" 
+                           FontSize="48" 
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"/>
+                <Button Content="重新开始" 
+                        Click="BtnRestart_Click"
+                        Background="#4ecdc4"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        FontSize="20"
+                        Padding="20,10"
+                        Margin="0,20,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- 通关遮罩 -->
+        <Border x:Name="WinOverlay" 
+                Grid.RowSpan="3"
+                Background="#80000000"
+                Visibility="Collapsed">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="恭喜通关！" 
+                           Foreground="#ffd700" 
+                           FontSize="48" 
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"/>
+                <TextBlock x:Name="TextFinalScore" 
+                           Text="最终得分: 0" 
+                           Foreground="#4ecdc4" 
+                           FontSize="24"
+                           HorizontalAlignment="Center"
+                           Margin="0,10"/>
+                <Button Content="再玩一次" 
+                        Click="BtnRestart_Click"
+                        Background="#4ecdc4"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        FontSize="20"
+                        Padding="20,10"
+                        Margin="0,20,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

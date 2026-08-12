@@ -1,0 +1,95 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+  <Package
+    Name="AdventureGame"
+    Manufacturer="AdventureGame"
+    Version="1.0.0.0"
+    UpgradeCode="92caae02-aa00-4ba1-9f72-471eb7fd5115">
+    <MajorUpgrade DowngradeErrorMessage="A newer version of AdventureGame is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <ui:WixUI Id="WixUI_InstallDir" />
+
+    <Feature Id="Main">
+      <ComponentGroupRef Id="AppComponents" />
+    </Feature>
+
+    <Feature Id="Shortcuts" Title="Create shortcuts" Description="Add Start Menu and Desktop shortcuts." Level="1">
+      <ComponentGroupRef Id="ShortcutComponents" />
+    </Feature>
+  </Package>
+
+  <Fragment>
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLFOLDER" Name="AdventureGame" />
+    </StandardDirectory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="AppComponents" Directory="INSTALLFOLDER">
+      <Component Guid="*">
+        <File Source="..\publish\AdventureGame.exe" KeyPath="yes" />
+      </Component>
+      <Component Guid="*">
+        <File Source="..\publish\AdventureGame.pdb" />
+      </Component>
+      <Component Guid="*">
+        <File Source="..\publish\appsettings.json" />
+      </Component>
+      <Component Guid="*">
+        <File Source="..\publish\appsettings.example.json" />
+      </Component>
+      <Component Guid="*">
+        <File Source="..\publish\D3DCompiler_47_cor3.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Source="..\publish\PenImc_cor3.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Source="..\publish\PresentationNative_cor3.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Source="..\publish\vcruntime140_cor3.dll" />
+      </Component>
+      <Component Guid="*">
+        <File Source="..\publish\wpfgfx_cor3.dll" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+
+  <Fragment>
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Directory Id="ProgramMenuAppFolder" Name="AdventureGame" />
+    </StandardDirectory>
+
+    <ComponentGroup Id="ShortcutComponents">
+      <Component Directory="ProgramMenuAppFolder" Guid="*">
+        <Shortcut Id="StartMenuShortcut"
+                  Name="AdventureGame"
+                  Description="AdventureGame"
+                  Target="[INSTALLFOLDER]AdventureGame.exe"
+                  WorkingDirectory="INSTALLFOLDER" />
+        <RemoveFolder Id="RemoveStartMenuFolder" On="uninstall" />
+        <RegistryValue Root="HKCU"
+                       Key="Software\AdventureGame"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+      <Component Directory="DesktopFolder" Guid="*">
+        <Shortcut Id="DesktopShortcut"
+                  Name="AdventureGame"
+                  Description="AdventureGame"
+                  Target="[INSTALLFOLDER]AdventureGame.exe"
+                  WorkingDirectory="INSTALLFOLDER" />
+        <RegistryValue Root="HKCU"
+                       Key="Software\AdventureGame"
+                       Name="desktopShortcut"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

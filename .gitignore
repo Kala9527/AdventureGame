@@ -1,0 +1,27 @@
+# .NET build outputs
+bin/
+obj/
+publish/
+Installer/bin/
+Installer/obj/
+*.msi
+*.cab
+
+# Logs
+*.log
+
+# Local config
+appsettings.Development.json
+.trae/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.user
+*.suo
+appsettings.json
+*.user
+.vs/
+*.suo
