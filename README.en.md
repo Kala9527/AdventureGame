@@ -1,74 +1,53 @@
-﻿# Adventure Game
+# Adventure Game
 
 [中文说明](./README.cn.md)
 
-> WPF pixel adventure game prototype with player, enemies, platforms, coins, items, levels, and a simple game loop.  
+> WPF desktop action game with HUD, coins, levels, keyboard combat, and installer packaging.
 
-This repository is packaged to be easy to **star, fork, run, remix, and contribute to**. It keeps a dedicated English version for global GitHub discovery, with a separate Chinese version linked above.
+![csharp](https://img.shields.io/badge/csharp-111827?style=flat-square) ![wpf](https://img.shields.io/badge/wpf-111827?style=flat-square) ![desktop-app](https://img.shields.io/badge/desktop-app-111827?style=flat-square) ![game-dev](https://img.shields.io/badge/game-dev-111827?style=flat-square) ![pixel-game](https://img.shields.io/badge/pixel-game-111827?style=flat-square)
 
-## Why Star This
+## Showcase
 
-- Practical project idea with a clear real-world use case.
-- Small enough to fork, study, and customize quickly.
-- English-first bilingual README for both global and Chinese-speaking developers.
-- Clean setup instructions, project structure, roadmap, and contribution entry points.
-- Built around popular GitHub themes such as AI tools, TypeScript, developer tools, local-first apps, automation, and indie-friendly workflows when relevant.
-
-## What It Does
-
-WPF pixel adventure game prototype with player, enemies, platforms, coins, items, levels, and a simple game loop.
+![Adventure Game showcase](./Docs/images/github-showcase.png)
 
 ## Highlights
 
-- WPF desktop game prototype
-- Basic game loop, input, collision, and level state management
-- Separated models for player, enemies, platforms, coins, and items
-- Configurable app settings template
-- WiX installer project reserved for Windows packaging
-
-## Tech Stack
-
-`	ext
-C#, WPF, .NET, Windows
-`
+- csharp
+- wpf
+- desktop app
+- game dev
+- pixel game
+- Practical project structure for learning, demos, and remixing.
+- Local-first setup where secrets, generated files, and build output stay out of Git.
 
 ## Quick Start
 
-`ash
-dotnet restore`ndotnet run`n`ndotnet build -c Release
-`
+```bash
+dotnet build
+dotnet run
+```
 
 ## Project Structure
 
-`	ext
+```text
 .
 |-- src/ or app/          Main source code
 |-- public/ or assets/    Static assets when available
-|-- docs/                 Notes, specs, or deployment docs when available
-|-- README.md             English-first bilingual project guide
--- package / project files
-`
-
-## Deployment / Packaging
-
-- Do not commit generated builds, local databases, API keys, private logs, or large media files.
-- For frontend projects, deploy the production dist/ folder to GitHub Pages, Vercel, Netlify, Nginx, or package it with DistDesktopLauncher.
-- For desktop/mobile projects, publish only release artifacts from a clean build environment.
-- Keep configuration examples public and real credentials private.
+|-- docs/                 Screenshots, notes, or deployment docs
+|-- README.md             GitHub landing README
+|-- README.en.md          English documentation
+`-- README.cn.md          Chinese documentation
+```
 
 ## Roadmap
 
-- [ ] More levels and enemy patterns
-- [ ] Pixel-art asset pack
-- [ ] Sound effects and controller support
-- [ ] Release build and installer automation
+- [ ] Add more real-world examples and screenshots.
+- [ ] Expand tests or smoke checks for the primary workflow.
+- [ ] Publish clean release artifacts where the project type supports it.
+- [ ] Keep documentation friendly for new contributors.
 
 ## Contributing
 
-Issues and pull requests are welcome. Useful contributions include better screenshots, demos, docs, templates, presets, provider guides, compatibility fixes, tests, and translations.
+Issues and pull requests are welcome. Useful contributions include screenshots, demos, docs, templates, presets, compatibility fixes, tests, and translations.
 
 If this project helps you, a star and fork make it easier for more people to discover it.
-
-
-
-
