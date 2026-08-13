@@ -1,68 +1,111 @@
-# AdventureGame
+﻿# Adventure Game
 
-AdventureGame 是一个基于 WPF 的 Windows 像素风冒险闯关游戏原型，使用 C# 和 .NET 构建。项目包含简单的玩家、敌人、平台、金币、道具、关卡加载、渲染服务和游戏循环，适合继续扩展成小型桌面游戏。
+> WPF pixel adventure game prototype with player, enemies, platforms, coins, items, levels, and a simple game loop.  
+> 中文：基于 WPF 的像素风冒险闯关游戏原型，包含玩家、敌人、平台、金币、道具、关卡与游戏循环。
+
+This repository is packaged to be easy to **star, fork, run, remix, and contribute to**. It keeps the first screen English-first for global GitHub discovery, while preserving a Chinese guide below.
+
+## Why Star This
+
+- Practical project idea with a clear real-world use case.
+- Small enough to fork, study, and customize quickly.
+- English-first bilingual README for both global and Chinese-speaking developers.
+- Clean setup instructions, project structure, roadmap, and contribution entry points.
+- Built around popular GitHub themes such as AI tools, TypeScript, developer tools, local-first apps, automation, and indie-friendly workflows when relevant.
+
+## What It Does
+
+WPF pixel adventure game prototype with player, enemies, platforms, coins, items, levels, and a simple game loop.
+
+## Highlights
+
+- WPF desktop game prototype
+- Basic game loop, input, collision, and level state management
+- Separated models for player, enemies, platforms, coins, and items
+- Configurable app settings template
+- WiX installer project reserved for Windows packaging
+
+## Tech Stack
+
+`	ext
+C#, WPF, .NET, Windows
+`
+
+## Quick Start
+
+`ash
+dotnet restore`ndotnet run`n`ndotnet build -c Release
+`
+
+## Project Structure
+
+`	ext
+.
+|-- src/ or app/          Main source code
+|-- public/ or assets/    Static assets when available
+|-- docs/                 Notes, specs, or deployment docs when available
+|-- README.md             English-first bilingual project guide
+-- package / project files
+`
+
+## Deployment / Packaging
+
+- Do not commit generated builds, local databases, API keys, private logs, or large media files.
+- For frontend projects, deploy the production dist/ folder to GitHub Pages, Vercel, Netlify, Nginx, or package it with DistDesktopLauncher.
+- For desktop/mobile projects, publish only release artifacts from a clean build environment.
+- Keep configuration examples public and real credentials private.
+
+## Roadmap
+
+- [ ] More levels and enemy patterns
+- [ ] Pixel-art asset pack
+- [ ] Sound effects and controller support
+- [ ] Release build and installer automation
+
+## Contributing
+
+Issues and pull requests are welcome. Useful contributions include better screenshots, demos, docs, templates, presets, provider guides, compatibility fixes, tests, and translations.
+
+If this project helps you, a star and fork make it easier for more people to discover it.
+
+---
+
+# 中文说明
+
+> 基于 WPF 的像素风冒险闯关游戏原型，包含玩家、敌人、平台、金币、道具、关卡与游戏循环。
+
+这个仓库已经改成 **英文优先、中文在后** 的双语 README，方便 GitHub 全球用户第一眼理解项目，同时保留中文开发者阅读体验。
+
+## 为什么值得 Star / Fork
+
+- 目标场景清晰，不是空壳项目。
+- 项目规模适合学习、二次开发和快速改造。
+- README、路线图、贡献入口和部署说明更完整。
+- topics 会尽量贴近当前 GitHub 热门方向，例如 AI、LLM、OpenAI-compatible、TypeScript、developer-tools、automation、local-first、gamedev 等。
 
 ## 功能亮点
 
-- WPF 桌面应用，窗口化运行。
-- 基础游戏循环、输入处理、碰撞与关卡状态管理。
-- 玩家、敌人、平台、金币、道具等模型拆分清晰。
-- `appsettings.json` 可配置标题、默认关卡和窗口尺寸。
-- WiX 安装包工程预留，便于后续生成 Windows 安装程序。
+- WPF desktop game prototype
+- Basic game loop, input, collision, and level state management
+- Separated models for player, enemies, platforms, coins, and items
+- Configurable app settings template
+- WiX installer project reserved for Windows packaging
 
-## 项目结构
+## 快速开始
 
-```text
-.
-├─ Models/                  # 游戏实体与状态模型
-├─ Services/                # 游戏引擎、关卡加载、渲染服务
-├─ Docs/                    # 渲染问题排查文档
-├─ Installer/               # WiX 安装包工程
-├─ App.xaml
-├─ MainWindow.xaml
-├─ AdventureGame.csproj
-└─ appsettings.example.json
-```
+`ash
+dotnet restore`ndotnet run`n`ndotnet build -c Release
+`
 
-## 本地运行
+## 部署与安全
 
-要求 Windows 和 .NET SDK。项目当前目标框架为 `net10.0-windows`，请安装匹配的 .NET SDK 预览 / 正式版本。
+- 不要提交 .env、API Key、生成媒体、大型文件、数据库、日志和构建产物。
+- 前端项目可以部署 dist/ 到 GitHub Pages、Vercel、Netlify 或 Nginx。
+- 桌面/移动端项目建议只发布干净环境构建出来的 release 文件。
 
-```bash
-dotnet restore
-dotnet run
-```
+## 后续计划
 
-## 构建与发布
-
-普通构建：
-
-```bash
-dotnet build -c Release
-```
-
-发布 Windows x64 自包含版本：
-
-```bash
-dotnet publish -c Release -r win-x64 --self-contained true
-```
-
-输出通常位于：
-
-```text
-bin/Release/net10.0-windows/win-x64/publish/
-```
-
-## 安装包
-
-`Installer/` 中包含 WiX 安装包工程。生成 msi 前需要安装 WiX Toolset，并根据本机 SDK 与发布目录调整构建配置。
-
-## 注意事项
-
-- `bin/`、`obj/`、`publish/`、安装包产物、`.msi`、日志等不提交到 GitHub。
-- `appsettings.json` 是本地运行配置；公开仓库建议使用 `appsettings.example.json` 作为模板。
-- 如果运行时缺少目标 .NET SDK，请先安装对应版本。
-
-## 感谢与支持
-
-感谢你点进这个小游戏项目。它还很年轻，但已经有了能继续长大的骨架。如果你喜欢这种桌面小游戏原型，欢迎 Star、Fork、提建议或帮我指出可以改进的地方，你的支持会让我更有动力继续做下去。
+- [ ] More levels and enemy patterns
+- [ ] Pixel-art asset pack
+- [ ] Sound effects and controller support
+- [ ] Release build and installer automation
