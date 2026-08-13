@@ -1,68 +1,74 @@
-# AdventureGame
+﻿# Adventure Game
 
-AdventureGame is a WPF Windows pixel-style adventure game prototype built with C# and .NET. It includes basic player, enemy, platform, coin, power-up, level loading, rendering, and game loop structures.
+[中文说明](./README.cn.md)
+
+> WPF pixel adventure game prototype with player, enemies, platforms, coins, items, levels, and a simple game loop.  
+
+This repository is packaged to be easy to **star, fork, run, remix, and contribute to**. It keeps a dedicated English version for global GitHub discovery, with a separate Chinese version linked above.
+
+## Why Star This
+
+- Practical project idea with a clear real-world use case.
+- Small enough to fork, study, and customize quickly.
+- English-first bilingual README for both global and Chinese-speaking developers.
+- Clean setup instructions, project structure, roadmap, and contribution entry points.
+- Built around popular GitHub themes such as AI tools, TypeScript, developer tools, local-first apps, automation, and indie-friendly workflows when relevant.
+
+## What It Does
+
+WPF pixel adventure game prototype with player, enemies, platforms, coins, items, levels, and a simple game loop.
 
 ## Highlights
 
-- WPF desktop application.
-- Basic game loop, input handling, collision, and level state management.
-- Clear model separation for players, enemies, platforms, coins, and power-ups.
-- `appsettings.json` for title, default level, and window size.
-- WiX installer project prepared for future Windows installer builds.
+- WPF desktop game prototype
+- Basic game loop, input, collision, and level state management
+- Separated models for player, enemies, platforms, coins, and items
+- Configurable app settings template
+- WiX installer project reserved for Windows packaging
 
-## Structure
+## Tech Stack
 
-```text
+`	ext
+C#, WPF, .NET, Windows
+`
+
+## Quick Start
+
+`ash
+dotnet restore`ndotnet run`n`ndotnet build -c Release
+`
+
+## Project Structure
+
+`	ext
 .
-├─ Models/
-├─ Services/
-├─ Docs/
-├─ Installer/
-├─ App.xaml
-├─ MainWindow.xaml
-├─ AdventureGame.csproj
-└─ appsettings.example.json
-```
+|-- src/ or app/          Main source code
+|-- public/ or assets/    Static assets when available
+|-- docs/                 Notes, specs, or deployment docs when available
+|-- README.md             English-first bilingual project guide
+-- package / project files
+`
 
-## Run Locally
+## Deployment / Packaging
 
-Requires Windows and the .NET SDK. The project currently targets `net10.0-windows`, so install the matching .NET SDK preview or release.
+- Do not commit generated builds, local databases, API keys, private logs, or large media files.
+- For frontend projects, deploy the production dist/ folder to GitHub Pages, Vercel, Netlify, Nginx, or package it with DistDesktopLauncher.
+- For desktop/mobile projects, publish only release artifacts from a clean build environment.
+- Keep configuration examples public and real credentials private.
 
-```bash
-dotnet restore
-dotnet run
-```
+## Roadmap
 
-## Build And Publish
+- [ ] More levels and enemy patterns
+- [ ] Pixel-art asset pack
+- [ ] Sound effects and controller support
+- [ ] Release build and installer automation
 
-Build:
+## Contributing
 
-```bash
-dotnet build -c Release
-```
+Issues and pull requests are welcome. Useful contributions include better screenshots, demos, docs, templates, presets, provider guides, compatibility fixes, tests, and translations.
 
-Publish a Windows x64 self-contained build:
+If this project helps you, a star and fork make it easier for more people to discover it.
 
-```bash
-dotnet publish -c Release -r win-x64 --self-contained true
-```
 
-Output is usually written to:
 
-```text
-bin/Release/net10.0-windows/win-x64/publish/
-```
 
-## Installer
-
-The `Installer/` folder contains a WiX installer project. Install WiX Toolset and adjust local build paths before generating an MSI.
-
-## Notes
-
-- `bin/`, `obj/`, `publish/`, installer outputs, `.msi`, and logs are ignored.
-- `appsettings.json` is local runtime config; use `appsettings.example.json` as the public template.
-- Install the required .NET SDK if the target framework is missing.
-
-## Thanks
-
-Thank you for checking out this small game prototype. If you like this direction, a Star, Fork, issue, or suggestion would be very encouraging.
